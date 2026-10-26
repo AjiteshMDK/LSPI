@@ -1,0 +1,14 @@
+"NSLocationWhenInUseUsageDescription" = "Nykyinen sijaintisi näytetään kartalla";
+
+"NSLocationAlwaysUsageDescription" = "Sallitaanko SAP Asset Managerille aina pääsy sijaintitietoihisi?";
+
+"NSCameraUsageDescription" = "Salli kameran käyttö viivakoodien lukemista ja sovellukseen liitettävien kuvien ottamista varten";
+
+"NSMicrophoneUsageDescription" = "Salli mikrofonin käyttö";
+
+"NSFaceIDUsageDescription" = "Kasvojen tunnistuksen käyttöönotto varmistaa SAP Asset Managerin nopean ja turvallisen käytön";
+
+"NSPhotoLibraryUsageDescription" = "Salli pääsy valokuvakirjastoon, jotta voit ladata sovellukseen valokuvia";
+
+"NSPhotoLibraryAddUsageDescription" = "Sovellus tarvitsee valokuvien kirjoitusoikeuden";
+

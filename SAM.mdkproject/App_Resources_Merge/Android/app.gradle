@@ -1,0 +1,20 @@
+// add gradle dependencies here
+
+android {
+    defaultConfig {
+        minSdkVersion 33
+        targetSdkVersion 35
+        resConfigs "ar", "bg", "cs", "da", "de", "el", "en", "es", "fi", "fr", "he", "hr", "hu", "id", "it", "ja", "ko", "nb", "nl", "pl", "pt", "ro", "ru", "sk", "sl", "sr", "sv", "th", "tr", "vi", "zh-rCN", "zh-rTW"
+    }
+    packagingOptions {
+      pickFirst 'lib/arm64-v8a/libsqlcipher.so'
+    }
+}
+
+project.ext {
+    googlePlayServicesVersion = "21.+"
+}
+dependencies {
+    def googlePlayServicesVersion = project.googlePlayServicesVersion
+    implementation "com.google.android.gms:play-services-location:$googlePlayServicesVersion"
+}

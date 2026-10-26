@@ -1,0 +1,9 @@
+
+repositories {
+    maven {
+	url "https://int.repositories.cloud.sap/artifactory/build-releases/"
+    }
+}
+dependencies {
+    classpath "org.jetbrains.kotlin.plugin.compose:org.jetbrains.kotlin.plugin.compose.gradle.plugin:2.1.20"
+}

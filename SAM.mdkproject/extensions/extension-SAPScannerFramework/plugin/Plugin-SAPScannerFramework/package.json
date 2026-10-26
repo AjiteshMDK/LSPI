@@ -1,0 +1,18 @@
+{
+  "name": "extension-SAPScannerFramework",
+  "version": "2505.0.0",
+  "description": "SAP Scanner Framework Library",
+  "main": "index",
+  "nativescript": {
+    "platforms": {
+      "ios": "8.6.4",
+      "android": "8.6.2"
+    }
+  },
+  "dependencies": {
+    "extension-SAMFoundation": "file:../extension-SAMFoundation",
+    "mdk-sap": "file:../SAP"
+  },
+  "author": "SAP",
+  "license": "ISC"
+}

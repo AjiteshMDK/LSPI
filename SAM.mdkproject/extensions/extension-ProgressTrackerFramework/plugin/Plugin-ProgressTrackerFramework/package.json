@@ -1,0 +1,17 @@
+{
+  "name":"extension-ProgressTrackerFramework",
+  "version":"2505.0.0",
+  "description":"A Progress Tracker plugin for MDK",
+  "main":"index.js",
+  "nativescript":{
+    "platforms":{
+      "ios":"8.8.2",
+      "android":"8.8.7-sap.0"
+    }
+  },
+  "scripts":{
+    "test":"test"
+  },
+  "author":"SAP",
+  "license":"ISC"
+}

@@ -1,0 +1,24 @@
+{
+  "AppName": "SvcAssetMgrDEV",
+  "AppDisplayName": "SvcAssetMgrDEV",
+  "AppVersion": "2511.1.0",
+  "BundleID": "com.sap.mobile.apps.assetmanager.SAM2405",
+  "Externals": ["nativescript-speech-recognition", "@nativescript/geolocation", "extension-LocationService", "extension-GenericWebView", "extension-SAMFoundation", "extension-MapAuthenticator", "extension-SAPScannerFramework", "uuid", "@nstudio/nativescript-dynatrace", "@nativescript/core/accessibility", "xml-js", "stream", "buffer", "emitter", "async-mutex", "nativescript-qr-generator", "@nativescript/core/timer"],
+  "NSPlugins": ["@nativescript/geolocation@8.3.1", "@nstudio/nativescript-dynatrace@1.0.1", "nativescript-qr-generator"],
+  "NPMPlugins": ["nativescript-speech-recognition", "uuid@9.0.1", "nativescript-dev-xcode", "@nativescript/hook", "xml-js", "stream", "buffer", "emitter", "async-mutex"],
+  "UrlScheme": "samclient",
+  "SPMPackages": [
+    {
+      "name": "arcgis-maps-sdk-swift",
+      "libs": ["ArcGIS"],
+      "repositoryURL": "https://github.com/Esri/arcgis-maps-sdk-swift",
+      "version": "200.8.0"
+    },
+    {
+      "name": "ApptentiveKit",
+      "libs": ["ApptentiveKit"],
+      "repositoryURL": "https://github.com/apptentive/apptentive-kit-ios",
+      "version": "6.9.2"
+    }
+  ]
+}

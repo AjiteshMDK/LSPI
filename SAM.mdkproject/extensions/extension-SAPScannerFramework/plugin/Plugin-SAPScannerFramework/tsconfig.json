@@ -1,0 +1,14 @@
+{
+    "compilerOptions": {
+        "target": "ES6",
+        "module": "commonjs",
+        "strict": true,
+        "baseUrl": ".",
+        "emitDecoratorMetadata": true,
+        "experimentalDecorators": true,
+        "paths": {
+            "extension-SAMFoundation": ["../extension-SAMFoundation" ],
+            "mdk-sap": ["../SAP"],
+        },
+    }
+}
