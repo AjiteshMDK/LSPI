@@ -1,0 +1,12 @@
+{
+	"Caption": "Resetting Application",
+	"OnReturning": "/SAPAssetManager/Rules/Common/RefreshActionBar.js",
+	"ActionBar": {
+		"_Name": "Reset",
+		"Items": [
+			"/SAPAssetManager/Pages/Fragments/SyncButton.fragment"
+		]
+	},
+	"_Name": "ResetPage",
+	"_Type": "Page"
+}

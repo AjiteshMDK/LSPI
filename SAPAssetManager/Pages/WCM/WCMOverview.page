@@ -1,0 +1,299 @@
+{
+	"Caption": "$(L,app_display_name)",
+	"OnLoaded":"/SAPAssetManager/Rules/WCM/QAB/WCMOverviewQABRefresh.js",
+	"OnReturning": "/SAPAssetManager/Rules/WCM/QAB/WCMOverviewQABRefresh.js",
+	"ActionBar": {
+		"Items": [
+			"/SAPAssetManager/Pages/Fragments/SyncButton.fragment",
+			{
+				"Position": "Right",
+				"_Name": "AutoSync",
+				"Caption": "$(L,sync)",
+				"IconText": "SyncIcon",
+				"Icon": "$(PLT, /SAPAssetManager/Images/auto-sync.pdf, /SAPAssetManager/Images/auto-sync.android.png, '',  /SAPAssetManager/Images/auto-sync.windows.png)",
+				"OnPress": "/SAPAssetManager/Rules/ApplicationEvents/ApplicationOnSync.js",
+				"Visible": "/SAPAssetManager/Rules/Sync/IsAutoSyncInProgress.js"
+			},
+			{
+				"Position": "Left",
+				"_Name": "Profile",
+				"Caption": "$(L,profile_settings)",
+				"OnPress": "/SAPAssetManager/Rules/ProfileSettings/UserProfileSettingsNav.js",
+				"Icon": "$(PLT,'','','','/SAPAssetManager/Images/profilesettings.windows.png')",
+				"Visible":"/SAPAssetManager/Rules/Common/IsWindows.js"
+			},
+			{
+				"Position": "Left",
+				"_Name": "Error",
+				"Caption": "$(L, errors)",
+				"OnPress": "/SAPAssetManager/Rules/ErrorArchive/ErrorArchiveAndSyncNav.js",
+				"SystemItem": "$(PLT,'','','','Bookmarks')",
+				"Visible":"/SAPAssetManager/Rules/Common/IsWindows.js"
+			}
+		]
+	},
+	"Controls": [
+		{
+			"_Type": "Control.Type.SectionedTable",
+			"_Name": "OverviewPageSectionedTable",
+			"Sections": [
+				"/SAPAssetManager/Pages/Fragments/Map/WCMMapSection.fragment",
+				{
+					"_Type": "Fragment",
+					"Fragment": "/SAPAssetManager/Pages/Fragments/QAB/QuickActionBarExtensionSection.fragment",
+					"Properties": {
+						"ExtensionProperties": {
+							"Chips": "/SAPAssetManager/Rules/WCM/OverviewQABChips.js"
+						},
+						"Visible": false
+					}
+				},
+				{
+					"_Type": "Fragment",
+					"Fragment": "/SAPAssetManager/Pages/Fragments/QAB/QABWindows.fragment",
+					"Properties": {
+						"Buttons":  [
+                        {
+                            "OnPress": "/SAPAssetManager/Rules/QAB/QABSettingsPageNav.js",
+                            "Image": "$(PLT,/SAPAssetManager/Images/QABSettings.png,/SAPAssetManager/Images/QABSettings.android.png, '', /SAPAssetManager/Images/QABSettings.png)",
+                            "TextAlignment": "Center",
+                            "ImagePosition": "Leading",
+                            "Semantic": "Normal",
+                            "ButtonType": "Secondary",
+                            "_Name": "SETTINGS"
+                        },
+                        {
+                            "Title" : "$(L,tagging)",
+                            "OnPress": "/SAPAssetManager/Rules/WCM/OperationalItems/ListView/OperationalItemsTaggingListViewNav.js",
+                            "Image": "$(PLT,/SAPAssetManager/Images/QABTagging.png,/SAPAssetManager/Images/QABTagging.android.png,'',/SAPAssetManager/Images/QABTagging.png)",
+                            "TextAlignment": "Center",
+                            "ImagePosition": "Leading",
+                            "Semantic": "Normal",
+                            "ButtonType": "Secondary",
+							"Visible":"/SAPAssetManager/Rules/QAB/WCMOverviewTaggingIsVisible.js",
+                            "_Name": "TAGGING"
+                        },
+                        {
+                            "Title" : "$(L,untagging)",
+                            "OnPress": "/SAPAssetManager/Rules/WCM/OperationalItems/ListView/OperationalItemsUntaggingListViewNav.js",
+                            "Image": "$(PLT,/SAPAssetManager/Images/QABUntagging.png,/SAPAssetManager/Images/QABUntagging.android.png, '',/SAPAssetManager/Images/QABUntagging.png)",
+                            "TextAlignment": "Center",
+                            "ImagePosition": "Leading",
+                            "Semantic": "Normal",
+                            "ButtonType": "Secondary",
+							"Visible":"/SAPAssetManager/Rules/QAB/WCMOverviewUntaggingIsVisible.js",
+                            "_Name": "UNTAGGING"
+                        },
+						{
+                            "Title" : "$(L,add_notification)",
+                            "OnPress": "/SAPAssetManager/Rules/Notifications/CreateUpdate/NotificationCreateChangeSetNav.js",
+                            "Image": "$(PLT,/SAPAssetManager/Images/QABTagging.png,/SAPAssetManager/Images/QABTagging.android.png, '', /SAPAssetManager/Images/QABTagging.png)",
+                            "TextAlignment": "Center",
+                            "ImagePosition": "Leading",
+                            "Semantic": "Normal",
+                            "ButtonType": "Secondary",
+							"Visible":"/SAPAssetManager/Rules/QAB/WCMOverviewAddNotificationIsVisible.js",
+                            "_Name": "ADD_NOTIFICATION"
+                        },
+						{
+                            "Title" : "$(L,add_reminder)",
+                            "OnPress": "/SAPAssetManager/Rules/Reminders/ReminderCreateNav.js",
+                            "Image": "$(PLT,/SAPAssetManager/Images/QABAddReminder.png,/SAPAssetManager/Images/QABAddReminder.android.png, '',/SAPAssetManager/Images/QABAddReminder.png)",
+                            "TextAlignment": "Center",
+                            "ImagePosition": "Leading",
+                            "Semantic": "Normal",
+                            "ButtonType": "Secondary",
+							"Visible": "/SAPAssetManager/Rules/QAB/WCMOverviewReminderIsVisible.js",
+                            "_Name": "ADD_REMINDER"
+                        }
+                        ]
+					}
+				},
+				{
+					"_Type": "Section.Type.ObjectCollection",
+					"Visible": true,
+					"Layout": {
+						"NumberOfColumns": 2,
+						"MinimumInteritemSpacing": "$(PLT,66,0)"
+					},
+					"_Name": "OperationalItemsSection",
+					"Header": {
+						"Caption": "$(L,wcm_operational_items)",
+						"UseTopPadding": false
+					},
+					"EmptySection": {
+						"Caption": "$(L,wcm_no_operational_items)"
+					},
+					"MaxItemCount": 4,
+					"ObjectCell": "/SAPAssetManager/Pages/WCM/Fragments/OperationalItems/OperationalItemObjectCell.fragment",
+					"Target": {
+						"EntitySet": "WCMDocumentItems",
+						"Service": "/SAPAssetManager/Services/AssetManager.service",
+						"QueryOptions": "/SAPAssetManager/Rules/WCM/OperationalItems/ListView/OperationalItemsListViewQueryOptions.js"
+					},
+					"Footer": {
+						"Caption": "$(L,see_all)",
+						"AccessoryType": "DisclosureIndicator",
+						"AttributeLabel": "/SAPAssetManager/Rules/WCM/OperationalItems/OperationalItemsCount.js",
+						"FooterStyle": "Attribute",
+						"OnPress": "/SAPAssetManager/Actions/WCM/OperationalItems/OperationalItemsListViewNav.action",
+						"Visible": "/SAPAssetManager/Rules/WCM/WCMOverviewRules/SeeAllIsVisible.js"
+					},
+					"DataSubscriptions": ["PMMobileStatuses"]
+				},
+				{
+					"_Type": "Section.Type.ObjectCollection",
+					"Visible": true,
+					"Layout": {
+						"NumberOfColumns": 2,
+						"MinimumInteritemSpacing": "$(PLT,66,0)"
+					},
+					"_Name": "CertificatesSection",
+					"Header": {
+						"Caption": "$(L,isolation_certificates)"
+					},
+					"EmptySection": {
+						"Caption": "$(L,wcm_no_certificates)"
+					},
+					"MaxItemCount": 4,
+					"ObjectCell": "/SAPAssetManager/Pages/WCM/Fragments/SafetyCertificateObjectCell.fragment",
+					"Target": {
+						"EntitySet": "WCMDocumentHeaders",
+						"Service": "/SAPAssetManager/Services/AssetManager.service",
+                        "QueryOptions": "/SAPAssetManager/Rules/WCM/SafetyCertificates/LOTOCertificatesOverviewPageQueryOption.js"
+					},
+					"Footer": {
+						"Caption": "$(L,see_all)",
+						"AccessoryType": "DisclosureIndicator",
+						"OnPress":"/SAPAssetManager/Actions/WCM/LOTOCertificatesListViewNav.action",
+						"AttributeLabel": "/SAPAssetManager/Rules/WCM/SafetyCertificates/LOTOCertificatesCount.js",
+						"FooterStyle": "Attribute",
+						"Visible": "/SAPAssetManager/Rules/WCM/WCMOverviewRules/SeeAllIsVisible.js"
+					},
+					"DataSubscriptions": ["PMMobileStatuses", "WCMDocumentItems"]
+				},
+                {
+					"_Type": "Section.Type.ObjectCollection",
+					"Visible": true,
+					"Layout": {
+						"NumberOfColumns": 2,
+						"MinimumInteritemSpacing": "$(PLT,66,0)"
+					},
+					"_Name": "WorkPermitsSection",
+					"Header": {
+						"Caption": "$(L,wcm_work_permits)"
+					},
+					"EmptySection": {
+						"Caption": "$(L,wcm_no_work_permits)"
+					},
+					"MaxItemCount": 4,
+					"ObjectCell": "/SAPAssetManager/Pages/WCM/Fragments/WorkPermitObjectCell.fragment",
+					"Target": {
+						"EntitySet": "WCMApplications",
+						"Service": "/SAPAssetManager/Services/AssetManager.service",
+						"QueryOptions": "/SAPAssetManager/Rules/WCM/WorkPermits/WorkPermitsListViewQueryOption.js"
+					},
+					"Footer": {
+						"Caption": "$(L,see_all)",
+						"AccessoryType": "DisclosureIndicator",
+						"AttributeLabel": "/SAPAssetManager/Rules/WCM/WorkPermits/WorkPermitsCount.js",
+						"FooterStyle": "Attribute",
+						"OnPress": "/SAPAssetManager/Actions/WCM/WorkPermitsListViewNav.action",
+						"Visible": "/SAPAssetManager/Rules/WCM/WCMOverviewRules/SeeAllIsVisible.js"
+					}
+				},
+                {
+					"_Type": "Section.Type.ObjectCollection",
+					"Visible": true,
+					"Layout": {
+						"NumberOfColumns": 2,
+						"MinimumInteritemSpacing": "$(PLT,66,0)"
+					},
+					"_Name": "WCMOverviewWorkorders",
+					"Header": {
+						"Caption": "$(L,workorders)"
+					},
+					"EmptySection": {
+						"Caption": "$(L,no_workorders_available)"
+					},
+					"MaxItemCount": 4,
+					"ObjectCell": "/SAPAssetManager/Pages/Fragments/WorkOrder/WorkOrderObjectCell.fragment",
+					"Target": {
+				        "EntitySet" : "MyWorkOrderHeaders",
+				        "Service" : "/SAPAssetManager/Services/AssetManager.service",
+                        "QueryOptions": "/SAPAssetManager/Rules/WorkOrders/ListView/WorkOrdersListViewQueryOptionWrapper.js"
+                    },
+					"Footer": {
+						"Caption": "$(L,see_all)",
+						"AccessoryType": "DisclosureIndicator",
+						"AttributeLabel": "/SAPAssetManager/Rules/WCM/WCMOverviewRules/WorkOrdersCount.js",
+						"FooterStyle": "Attribute",
+						"OnPress": "/SAPAssetManager/Rules/WorkOrders/WorkOrdersListViewNav.js"
+					}
+				},
+                {
+					"SimplePropertyCells": [
+						{
+							"SimplePropertyCell": {
+								"AccessoryType": "DisclosureIndicator",
+								"KeyName": "$(L,equipment)",
+								"Value": "/SAPAssetManager/Rules/Equipment/EquipmentCount.js",
+								"OnPress": "/SAPAssetManager/Rules/Equipment/EquipmentListViewNav.js"
+							}
+						},
+						{
+							"SimplePropertyCell": {
+								"AccessoryType": "DisclosureIndicator",
+								"KeyName": "$(L,functional_locations)",
+								"Value": "/SAPAssetManager/Rules/FunctionalLocation/FunctionalLocationCount.js",
+								"OnPress": "/SAPAssetManager/Rules/FunctionalLocation/FunctionalLocationListViewNav.js"
+							}
+						},
+						{
+							"SimplePropertyCell": {
+								"AccessoryType": "DisclosureIndicator",
+								"KeyName": "$(L,reminders)",
+								"Value": "/SAPAssetManager/Rules/OverviewPage/OverviewPageRemindersCount.js",
+								"OnPress": "/SAPAssetManager/Actions/Reminders/RemindersListViewNav.action"
+							}
+						},
+						{
+							"SimplePropertyCell": {
+								"AccessoryType": "DisclosureIndicator",
+								"KeyName": "$(L,notifications)",
+								"Value": "/SAPAssetManager/Rules/Notifications/NotificationsTotalCount.js",
+								"OnPress": "/SAPAssetManager/Actions/Notifications/NotificationsListViewNav.action"
+							}
+						},
+						{
+							"SimplePropertyCell": {
+								"AccessoryType": "DisclosureIndicator",
+								"KeyName": "$(L,wcm_work_approvals)",
+								"Value": "/SAPAssetManager/Rules/WCM/WorkApprovals/List/WorkApprovalsCount.js",
+                                "OnPress": "/SAPAssetManager/Actions/WCM/WorkApprovalsListViewNav.action"
+							}
+						},
+						{
+							"SimplePropertyCell": {
+								"AccessoryType": "DisclosureIndicator",
+								"KeyName": "$(L,other_certificates)",
+								"Value": "/SAPAssetManager/Rules/WCM/SafetyCertificates/OtherCertificatesCount.js" ,
+                                "OnPress": "/SAPAssetManager/Rules/WCM/SafetyCertificates/OtherCertificatesListViewNav.js"
+							}
+						}
+
+					],
+					"Layout": {
+						"NumberOfColumns": 2,
+						"MinimumInteritemSpacing": "$(PLT,66,0)"
+					},
+					"DataSubscriptions": ["MyNotificationHeaders", "UserPreferences"],
+					"_Type": "Section.Type.SimplePropertyCollection"
+				}
+			]
+		}
+	],
+	"_Type": "Page",
+	"_Name": "WCMOverviewPage",
+	"DataSubscriptions": ["/SAPAssetManager/Services/AssetManager.service"]
+}

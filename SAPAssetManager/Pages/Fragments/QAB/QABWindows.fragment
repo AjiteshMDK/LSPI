@@ -1,0 +1,13 @@
+{
+    "Header": {
+        "UseTopPadding": true
+    },
+    "Buttons": [],
+    "Layout": {
+        "LayoutType": "Horizontal",
+        "HorizontalAlignment": "Leading",
+        "HorizontalScrollingEnabled": true
+    },
+    "_Name": "QABButtons",
+    "_Type": "Section.Type.ButtonTable"
+}

@@ -1,0 +1,39 @@
+import isSyncInProgress from '../Sync/IsSyncInProgress';
+import errorLibrary from '../Common/Library/ErrorLibrary';
+import NetworkLib from '../Common/Library/NetworkMonitoringLibrary';
+//import IsESRINameUserAuthEnabled from '../ESRI/IsESRINameUserAuthEnabled';
+//import EsriLibrary from '../ESRI/EsriLibrary';
+import setSyncInProgressState from '../Sync/SetSyncInProgressState';
+import RefreshActionBar from '../Common/RefreshActionBar';
+
+export default async function ApplicationOnSync(clientAPI) {
+    // TODO: remove the workaround when MDK provides a solution (MDKBUG-1604)
+    let pageProxy = clientAPI.getPageProxy();
+    if (pageProxy && pageProxy.getGlobalSideDrawerControlProxy) {
+        let sideDrawer = pageProxy.getGlobalSideDrawerControlProxy();
+        if (sideDrawer) {
+            // prevents a navigation history from being reset on the next navigation
+            sideDrawer._control.blankItemSelected = false;
+        }
+    }
+                    
+    if (!isSyncInProgress(clientAPI)) {
+        if (!NetworkLib.isNetworkConnected(pageProxy)) {
+            pageProxy.executeAction('/SAPAssetManager/Actions/SyncError/SyncErrorNoConnection.action');
+            return false;
+        }
+        errorLibrary.clearError(clientAPI);
+        
+        //check if token expired for the ESRI Named User Authentication
+        // if (IsESRINameUserAuthEnabled(clientAPI)) {
+        //     if (EsriLibrary.CheckIfESRIAccessTokenExpired(clientAPI)) {
+        //         await EsriLibrary.refreshEsriToken(clientAPI);
+        //     }
+        // }
+        setSyncInProgressState(clientAPI, true);
+        RefreshActionBar(clientAPI);
+        return clientAPI.executeAction('/SAPAssetManager/Actions/SyncInitializeBannerMessage.action');
+    } else {
+        return clientAPI.executeAction('/SAPAssetManager/Actions/SyncInProgressToast.action');
+    }
+}

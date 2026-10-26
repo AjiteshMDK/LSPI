@@ -1,0 +1,45 @@
+{
+	"ApplicationName": "ZSAPAssetManager",
+	"ProjectName": "ZSAPAssetManager",
+	"ComponentVersion": "1.0.0",
+	"IntegrationPoints": [
+		{
+			"Source": "/ZSAPAssetManager/i18n/i18n.properties",
+			"Target": "/SAPAssetManager/i18n/i18n.properties"
+		},
+		{
+			"Source": "/ZSAPAssetManager/Rules/Parts/PartLibrary.js",
+			"Target": "/SAPAssetManager/Rules/Parts/PartLibrary.js"
+		},
+		
+		{
+			"Source": "/ZSAPAssetManager/Rules/WorkOrders/Operations/WorkOrderOperationLibrary.js",
+			"Target": "/SAPAssetManager/Rules/WorkOrders/Operations/WorkOrderOperationLibrary.js"
+		},
+		{
+			"Source": "/ZSAPAssetManager/Rules/Supervisor/SupervisorRole/IsSupervisorSectionVisibleForOperations.js",
+			"Target": "/SAPAssetManager/Rules/Supervisor/SupervisorRole/IsSupervisorSectionVisibleForOperations.js"
+		},
+		{
+			"Source": "/ZSAPAssetManager/Rules/WorkOrders/SubOperations/WorkOrderSubOperationsShouldRenderFooter.js",
+			"Target": "/SAPAssetManager/Rules/WorkOrders/SubOperations/WorkOrderSubOperationsShouldRenderFooter.js"
+		},
+		{
+			"Source": "/ZSAPAssetManager/Pages/WorkOrders/Operations/WorkOrderOperationDetailsWithObjectCards.page",
+			"Target": "/SAPAssetManager/Pages/WorkOrders/Operations/WorkOrderOperationDetailsWithObjectCards.page"
+		},
+		{
+			"Source": "/ZSAPAssetManager/Pages/Overview.page",
+			"Target": "/SAPAssetManager/Pages/Overview.page"
+		},
+		{
+			"Source": "/ZSAPAssetManager/Rules/Supervisor/Assign/UserRolesAssignListPickerItems.js",
+			"Target": "/SAPAssetManager/Rules/Supervisor/Assign/UserRolesAssignListPickerItems.js"
+		},
+		{
+			"Source": "/ZSAPAssetManager/Pages/Supervisor/Assign/OperationAssign.page",
+			"Target": "/SAPAssetManager/Pages/Supervisor/Assign/OperationAssign.page"
+		}
+
+	]
+}

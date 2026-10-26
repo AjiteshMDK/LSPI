@@ -1,0 +1,30 @@
+{
+    "_Type": "Section.Type.ObjectTable",
+    "_Name": "ServiceItems",
+    "Header": {
+        "UseTopPadding": false
+    },
+    "EmptySection": {
+        "Caption": "$(L, no_service_items_available)"
+    },
+    "ObjectCell": {
+        "Icons": "/SAPAssetManager/Rules/ServiceOrders/ListView/ServiceOrderListViewIconImages.js",
+        "Title": "{ItemDesc}",
+        "Subhead": "/SAPAssetManager/Rules/ServiceOrders/ServiceItems/ServiceItemSubheadText.js",
+        "AccessoryType": "DisclosureIndicator",
+        "Description": "/SAPAssetManager/Rules/ServiceOrders/Details/ServiceItemProductIdValue.js",
+        "Footnote": "/SAPAssetManager/Rules/DateTime/ServiceDueByDate.js",
+        "StatusText": "/SAPAssetManager/Rules/ServiceOrders/ServiceItems/ServiceItemTypeText.js",
+        "SubstatusText": "/SAPAssetManager/Rules/ServiceOrders/ServiceItems/ServiceItemStatusText.js",
+        "OnPress": "/SAPAssetManager/Rules/ServiceOrders/ServiceItems/ServiceItemDetailsNav.js",
+        "PreserveIconStackSpacing": false
+    },
+    "Target": {
+        "EntitySet": "S4ServiceItems",
+        "Service": "/SAPAssetManager/Services/AssetManager.service"
+    },
+    "DataSubscriptions": [
+        "S4ServiceItems",
+        "PMMobileStatuses"
+    ]
+}

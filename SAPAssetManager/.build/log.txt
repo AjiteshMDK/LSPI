@@ -1,0 +1,2 @@
+Pass:
+Generated bundle file /Users/ajiteshupadhyaya/Desktop/MyWorks/Metadata/LSPI/SAPAssetManager/.build/SAPAssetManager/.build/uploadBundle.zip

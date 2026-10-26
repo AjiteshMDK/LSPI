@@ -1,0 +1,19 @@
+{
+	"PopoverItems": 
+	[{
+		"Title": "$(L,add_crew_member)",
+		"OnPress" : "/SAPAssetManager/Rules/Crew/Employees/CrewEmployeeCreateChangesetWrapper.js",
+		"Visible": false
+	},
+	{
+		"Title" : "$(L,add_vehicle)",
+		"OnPress" : "/SAPAssetManager/Rules/Crew/Vehicles/CrewVehicleCreateChangesetWrapper.js",
+		"_Visible": "/SAPAssetManager/Rules/Crew/Vehicles/CrewVehicleCheckVisibleWrapper.js",
+		"Visible": false
+	},
+	{
+		"Title" : "$(L,add_time_entry)",
+		"OnPress" : "/SAPAssetManager/Rules/TimeSheets/Entry/CreateUpdate/TimeSheetEntryCreateNav.js"
+	}],
+	"_Type": "Action.Type.PopoverMenu"
+}

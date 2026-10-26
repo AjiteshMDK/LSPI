@@ -1,0 +1,8 @@
+{
+    "Message": "$(L,sync_in_progress)",
+    "OnSuccess": "/SAPAssetManager/Rules/ApplicationEvents/SyncData.js",
+    "DismissBannerOnAction": false,
+    "Duration": 0,
+    "Animated": true,
+    "_Type" : "Action.Type.BannerMessage"
+}

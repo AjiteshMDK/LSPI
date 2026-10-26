@@ -1,0 +1,5 @@
+{
+    "_Type" : "Action.Type.Navigation",
+    "ClearHistory":true,
+    "PageToOpen" : "/SAPAssetManager/Pages/OverviewMTStd.page"
+}

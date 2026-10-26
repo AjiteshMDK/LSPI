@@ -1,0 +1,6 @@
+{
+    "_Type": "Action.Type.BannerMessage",
+    "Message": "$(L, making_content_available_offline)",
+	"OnSuccess": "/SAPAssetManager/Rules/OnlineSearch/Download/DownloadOnlineEntity.js",
+    "DismissBannerOnAction": true
+}

@@ -1,0 +1,14 @@
+[
+    {
+        "Position": "Left",
+        "SystemItem": "Cancel",
+        "Caption": "$(L,cancel)",
+        "OnPress": "/SAPAssetManager/Actions/Page/CancelPage.action"
+    },
+    {
+        "Position": "Right",
+        "Icon": "$(PLT,'',/SAPAssetManager/Images/filter.android.png, '', /SAPAssetManager/Images/filter.windows.png)",
+        "Text": "/SAPAssetManager/Rules/Filter/FilterText.js",
+        "OnPress": "/SAPAssetManager/Rules/WCM/Filter/WCMFilterApply.js"
+    }
+]
